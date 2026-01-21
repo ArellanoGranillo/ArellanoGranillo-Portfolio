@@ -14,7 +14,7 @@ FROM tomcat:11-jdk17
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copia tu WAR como aplicación raíz
-COPY --from=build /app/target/noyule-web-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
+COPY --from=build /app/target/Portfolio.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
 
