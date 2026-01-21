@@ -1,10 +1,20 @@
-FROM tomcat:11.0-jdk21-temurin
 
-# Borra las apps default de Tomcat
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+
+RUN mvn clean package -DskipTests
+
+# ---- FASE 2: Ejecutar en Tomcat ----
+FROM tomcat:11-jdk17
+
+# Borra apps por defecto de Tomcat
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copia tu app JSP al ROOT de Tomcat
-COPY src/main/webapp /usr/local/tomcat/webapps/ROOT
+# Copia tu WAR como aplicación raíz
+COPY --from=build /app/target/noyule-web-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
 

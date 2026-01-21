@@ -218,7 +218,7 @@
 
         <!-- IMAGE -->
         <div class="photo-contact">
-            <img src="images/Karen10.png" alt="Karen portrait">
+            <img src="images/Karen9.png" alt="Karen portrait">
         </div>
 
 
