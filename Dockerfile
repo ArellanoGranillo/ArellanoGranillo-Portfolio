@@ -1,21 +1,22 @@
-
+# ---- BUILD ----
 FROM maven:3.9.6-eclipse-temurin-17 AS build
 
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 
+# Empaquetar el WAR
 RUN mvn clean package -DskipTests
 
-# ---- FASE 2: Ejecutar en Tomcat ----
-FROM tomcat:11-jdk17
+# ---- RUN ----
+FROM eclipse-temurin:17-jre
 
-# Borra apps por defecto de Tomcat
-RUN rm -rf /usr/local/tomcat/webapps/*
+WORKDIR /app
+COPY --from=build /app/target/Portfolio.war app.war
 
-# Copia tu WAR como aplicación raíz
-COPY --from=build /app/target/Portfolio.war /usr/local/tomcat/webapps/ROOT.war
+# Render asigna el puerto mediante la variable PORT
+ENV PORT=${PORT}
+EXPOSE ${PORT}
 
-EXPOSE 8080
-
-CMD ["catalina.sh", "run"]
+# Ejecutar WAR usando Tomcat embebido de Spring Boot (si tu WAR es Spring Boot)
+CMD ["java", "-jar", "app.war", "--server.port=${PORT}"]
