@@ -5,18 +5,23 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 
-# Empaquetar el WAR
 RUN mvn clean package -DskipTests
 
-# ---- RUN ----
-FROM eclipse-temurin:17-jre
+# ---- RUN en Tomcat ----
+FROM tomcat:11-jdk17
 
-WORKDIR /app
-COPY --from=build /app/target/Portfolio.war app.war
+# Borrar aplicaciones por defecto
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Render asigna el puerto mediante la variable PORT
+# Copiar WAR como ROOT
+COPY --from=build /app/target/Portfolio.war /usr/local/tomcat/webapps/ROOT.war
+
+# Render asigna puerto mediante la variable PORT
 ENV PORT=${PORT}
+
+# Configurar Tomcat para usar el puerto de Render
+RUN sed -i "s/port=\"8080\"/port=\"${PORT}\"/g" /usr/local/tomcat/conf/server.xml
+
 EXPOSE ${PORT}
 
-# Ejecutar WAR usando Tomcat embebido de Spring Boot (si tu WAR es Spring Boot)
-CMD ["java", "-jar", "app.war", "--server.port=${PORT}"]
+CMD ["catalina.sh", "run"]
