@@ -20,7 +20,7 @@ COPY --from=build /app/target/Portfolio.war /usr/local/tomcat/webapps/ROOT.war
 ENV PORT=${PORT}
 
 # Configurar Tomcat para usar el puerto de Render
-RUN sed -i "s/port=\"8080\"/port=\"${PORT}\"/g" /usr/local/tomcat/conf/server.xml
+RUN sed -i "s/port=\"8081\"/port=\"${PORT}\"/g" /usr/local/tomcat/conf/server.xml
 
 EXPOSE ${PORT}
 
