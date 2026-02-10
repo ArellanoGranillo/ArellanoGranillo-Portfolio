@@ -201,7 +201,7 @@
 
     <div class="nav">
         <a href="index.jsp">About me</a>
-        <a href="curriculumVitae.jsp">Curriculum Vitae</a>
+        <a href="resume.jsp">Resume</a>
         <a href="contactMe.jsp">Contact Me</a>
     </div>
 </div>

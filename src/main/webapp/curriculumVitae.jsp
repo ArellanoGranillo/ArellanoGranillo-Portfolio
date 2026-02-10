@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Curriculum Vitae | Karen Arellano Granillo</title>
+    <title>Resume | Karen Arellano Granillo</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600&display=swap" rel="stylesheet">
 

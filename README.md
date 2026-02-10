@@ -2,7 +2,7 @@
 
 This repository contains my personal portfolio website, designed to showcase my professional profile, skills, experience, and projects.
 
-The website is structured as an online curriculum vitae and portfolio, combining clean design with clear content presentation.
+The website is structured as an online curriculum vitae/ resume and portfolio, combining clean design with clear content presentation.
 
 ---
 

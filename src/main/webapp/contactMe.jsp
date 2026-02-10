@@ -173,7 +173,7 @@
     <div class="nav">
         <a href="index.jsp">About me</a>
         <a href="projects.jsp">Projects</a>
-        <a href="curriculumVitae.jsp">Curriculum Vitae</a>
+        <a href="resume.jsp">Resume</a>
     </div>
 </div>
 
