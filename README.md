@@ -1,4 +1,5 @@
 # Personal Portfolio Website
+**Functionality Screenshots Added**
 
 This repository contains my personal portfolio website, designed to showcase my professional profile, skills, experience, and projects.
 
@@ -18,6 +19,11 @@ The website is structured as an online curriculum vitae/ resume and portfolio, c
 - Clean, modern, editorial-inspired UI
 
 ---
+**Functionality Screenshots included**
+1.MainScreen
+2.Projects
+3.CV
+4..ContactMe
 
 ## 🛠️ Technologies Used
 
